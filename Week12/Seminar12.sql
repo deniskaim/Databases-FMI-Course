@@ -15,6 +15,7 @@ BEGIN
 	UPDATE FLIGHTS
 	SET num_pass = num_pass + 1
 	WHERE FNUMBER IN (SELECT FLIGHT_NUMBER FROM inserted)
+	
 	UPDATE AGENCIES
 	SET num_book = num_book + 1
 	WHERE NAME IN (SELECT AGENCY FROM inserted)
@@ -29,6 +30,7 @@ BEGIN
 	UPDATE FLIGHTS
 	SET num_pass = num_pass - 1
 	WHERE FNUMBER IN (SELECT FLIGHT_NUMBER FROM deleted)
+	
 	UPDATE AGENCIES
 	SET num_book = num_book - 1
 	WHERE NAME IN (SELECT AGENCY FROM deleted)
